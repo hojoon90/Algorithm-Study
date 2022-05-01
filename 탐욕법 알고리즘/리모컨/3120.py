@@ -1,30 +1,16 @@
-t1, t2= input().split()
+t1, t2= map(int,input().split())
 
-t1 = int(t1)
-t2 = int(t2)
+absVal = abs(t1 - t2)
 
-temp = [10, 5, 1]
+result = 0
+result += absVal // 10
 
-i = 0
-index = 0
+rmdVal = absVal % 10
+if rmdVal == 1 or rmdVal == 5:
+    result += 1
+elif rmdVal == 2 or rmdVal == 4 or rmdVal == 6 or rmdVal == 9:
+    result += 2
+elif rmdVal == 3 or rmdVal == 7 or rmdVal == 8:
+    result += 3
 
-while True:
-    if t1 < t2:
-        sumCount = t1 + temp[index]
-        if sumCount > t2:
-            index += 1
-        else:
-            t1 = sumCount
-    else:
-        t1 = t1 - temp[index]
-        if sumCount < t2:
-            index += 1
-        else:
-            t1 = sumCount
-
-    if t1 == t2:
-        break
-    i += 1
-
-
-print(i)
+print(result)
