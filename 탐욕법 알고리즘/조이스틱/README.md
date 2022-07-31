@@ -1,7 +1,7 @@
 # 탐욕법 - 조이스틱
 #### 프로그래머스 https://programmers.co.kr/learn/courses/30/lessons/42860
 
-###문제 설명
+### 문제 설명
 조이스틱으로 알파벳 이름을 완성하세요. 맨 처음엔 A로만 이루어져 있습니다.\
 ex) 완성해야 하는 이름이 세 글자면 AAA, 네 글자면 AAAA
 
@@ -19,10 +19,49 @@ ex) 완성해야 하는 이름이 세 글자면 AAA, 네 글자면 AAAA
 따라서 11번 이동시켜 "JAZ"를 만들 수 있고, 이때가 최소 이동입니다.
 만들고자 하는 이름 name이 매개변수로 주어질 때, 이름에 대해 조이스틱 조작 횟수의 최솟값을 return 하도록 solution 함수를 만드세요.
 
-###제한 사항
+### 제한 사항
 name은 알파벳 대문자로만 이루어져 있습니다.\
 name의 길이는 1 이상 20 이하입니다.\
 입출력 예\
 name	return\
 "JEROEN"	56\
 "JAN"	23\
+
+### 입출력 예
+
+|name|return|
+|---|---|
+|"JEROEN"|56|
+|"JAN"|23|
+
+### 문제풀이
+
+**참고: https://school.programmers.co.kr/questions/26014**
+
+```python
+def solution(name):
+    if set(name) == {'A'}:
+        return 0
+
+    answer = float('inf')
+    for i in range(len(name) // 2):
+        left_moved = name[-i:]+name[:-i]
+        right_moved = name[i:]+name[:i]
+        for n in [left_moved, right_moved[0]+right_moved[:0:-1]]:
+            while n and n[-1] == 'A':
+                n = n[:-1]
+
+            row_move = i + len(n)-1
+            col_move = 0
+            for c in map(ord, n):
+                col_move += min(c - 65, 91 - c)
+
+            answer = min(answer, row_move + col_move)
+
+    return answer
+```
+
+이번 문제는 도저히 붙잡아도 풀리지 않아서 프로그래머스 질문게시판에서 정답을 찾았다... 근데 질문 게시판에 올라오는 글 전부 그리디 문제가 아니라는 이야기가 있더라...
+어쩐지 뭔가 접근이 쉽지 않았다고 느꼈다.\
+일단 풀이를 보면 answer값을 무한으로 지정해놓고 시작한다. 그 후 name 길이의 절반의 숫자를 for문으로 돌려주는데, 이건 아래 왼쪽과 오른쪽 이동을 모두 하기 때문에
+절반만 for문이 실행되도록 해준다.
