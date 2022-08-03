@@ -64,5 +64,9 @@ def solution(name):
 이번 문제는 도저히 붙잡아도 풀리지 않아서 프로그래머스 질문 게시판에서 정답을 찾았다... 근데 질문 게시판에 올라 오는 글 전부 그리디 문제가 아니라는 이야기가 있더라...
 어쩐지 뭔가 접근이 쉽지 않았다고 느꼈다.\
 일단 풀이를 보면 answer 값을 무한으로 지정 해놓고 시작 한다. 그 후 name 길이의 절반의 숫자를 for 문으로 돌려 주는데, 이건 아래 왼쪽과 오른쪽 이동을 모두 하기 때문에
-절반만 for문이 실행 되도록 해준다. 안에 서는 left_moved 와 right_moved 변수에 각각 이동 했을 때 오는 문자가 제일 앞에 온다. 만약 'JEROEN'을 예시로 한다면
-첫번째는 둘다 JEROEN이, 두번째는 각각 left_moved는 'NJEROE', right_moved 는 'EROENJ'가 된다.
+절반만 for문이 실행 되도록 해준다. \
+안에는 left_moved 와 right_moved 변수에 각각 이동 했을 때 오는 문자가 제일 앞에 온다. 만약 'JEROEN'을 예시로 한다면 첫번째는 둘다 JEROEN이, 
+두번째는 각각 left_moved는 'NJEROE', right_moved 는 'EROENJ'가 된다.\
+안의 for문에서는 left_moved와 right_moved를 배열에 넣는데, right_moved 는 앞글자를 제외한 나머지 글자를 거꾸로 정렬한다. 만약 첫번째의 경우라면 배열의 내용은
+['JEROEN', 'JNEORE'] 가 된다. 처음엔 배열에 넣을 때 right_moved의 정렬을 왜 변경하는지 이해하지 못했었는데, 바로 아래 while문을 보고 이해할 수 있었다.\
+좌측 이동의 경우는 
