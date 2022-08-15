@@ -9,10 +9,18 @@ s, t = map(int, input().split())
 
 roomLocation = 0;
 changeLocation = 0;
-date = 1;
+remainCount = 0;
 changeCount = 0;
 
-def findOloc(room):
+
+def findOloc():
+    for i in range(m):
+        for j range()
+
+        if room[j] == 'O':
+            remainCount = remainCount + 1
+        else
+
     possibleroom = [];
     index = -1
     while True:
@@ -22,8 +30,9 @@ def findOloc(room):
             break
     return possibleroom;
 
+
 # 고객이 오는 날짜 동안 만의 room 위치를 확인.
-for room in roomList[s-1:t+1]:
+for room in:
     print(room)
     # if s == date : # 도착한 날짜에 맞는 방 위치를 찾아줌.
     #     location = findOloc();
