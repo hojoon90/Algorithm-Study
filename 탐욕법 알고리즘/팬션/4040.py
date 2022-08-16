@@ -1,5 +1,5 @@
 n, m = map(int, input().split())
-roomList = [];
+roomList = [['X']*m];
 
 for i in range(n):
     room = input();
@@ -7,48 +7,30 @@ for i in range(n):
 
 s, t = map(int, input().split())
 
-roomLocation = 0;
-changeLocation = 0;
-remainCount = 0;
-changeCount = 0;
+def findOloc(day):
+    roomCount = 0;
+    for i in range(m):  # 방 위치
+        remainCount = 0
+        for j in range(day, t): # 날짜
+            if roomList[j][i] == 'O':
+                remainCount += 1
+            else:
+                break
+        if remainCount > roomCount:
+            roomCount = remainCount
 
+    return roomCount
 
-def findOloc():
-    for i in range(m):
-        for j range()
+count = -1
+today = s
 
-        if room[j] == 'O':
-            remainCount = remainCount + 1
-        else
+while today<t:
+    stay = findOloc(today)
+    if stay == 0:
+        count = -1
+        break
 
-    possibleroom = [];
-    index = -1
-    while True:
-        index = room.find("O", index + 1)
-        possibleroom.append(index);
-        if index == -1:
-            break
-    return possibleroom;
+    count+=1
+    today+=stay
 
-
-# 고객이 오는 날짜 동안 만의 room 위치를 확인.
-for room in:
-    print(room)
-    # if s == date : # 도착한 날짜에 맞는 방 위치를 찾아줌.
-    #     location = findOloc();
-    #
-    #     roomLocation = room.find('O')
-    # else:
-    #     # 방이 다 비어있을 수도 있으니 해당 위치 먼저 확인.
-    #     if room[roomLocation] != 'O':
-    #          # 만약 아니면 방 위치 변경 (최소한으로 움직일수 있는 방으로)
-    #
-    #
-    #          changeLocation = room.find('O')
-    #          changeCount = changeCount+1
-    #     # TODO 방 위치 변경 시 최소한으로 움직일 수 있는 방을 찾아서 줘야함.
-
-    date = date + 1
-
-print(changeCount)
-
+print(count)
