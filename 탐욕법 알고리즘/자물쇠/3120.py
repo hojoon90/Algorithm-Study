@@ -5,3 +5,4 @@ originList = []
 for i in range(n):
     originList.append(i)
 
+#dfs 접근...?
