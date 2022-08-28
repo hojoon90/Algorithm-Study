@@ -10,6 +10,23 @@ for i in range(n):
 changeList = m
 
 lastLeftCount = 0;
+
+def changeLocation(list):
+    beforenum = 0
+    for i in range(n):
+        num = list[i]
+        # 첫 for문은 저장하고 넘어감
+        if i == 0:
+            beforenum = num
+            continue
+        # 순서가 맞으면 세팅하고 넘어감
+        if beforenum == num - 1:
+            beforenum = num
+            continue
+        elif :
+
+
+
 # 오른쪽으로 다시 돌리는 for문 (상위 카운트)
 # 접근 방법
 # 1. 맨 마지막 왼쪽으로 밀기를 다시 오른쪽으로 민다 (카운트가 제일 늦게 올라감)
@@ -19,7 +36,9 @@ lastLeftCount = 0;
 while True:
     lastLeftCount += 1
     for j in range(n):
-        if(j == 0):
-            m.insert(n, m[0])
-            m.pop(0)
+        m.insert(n, m[0])
+        m.pop(0)
+        changeLocation(m)
+
+
 
