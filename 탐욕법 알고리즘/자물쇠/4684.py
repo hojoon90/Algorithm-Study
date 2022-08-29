@@ -12,6 +12,7 @@ changeList = m
 lastLeftCount = 0;
 
 def changeLocation(list):
+    wiredNumList = []
     beforenum = 0
     for i in range(n):
         num = list[i]
@@ -23,8 +24,13 @@ def changeLocation(list):
         if beforenum == num - 1:
             beforenum = num
             continue
-        # 순서가 서로 다른 넘버를 찾아서 바꿔줘야함.. 어떻게..?
-        elif :
+        # 이전 번호가 10이고 그다음이 1이면 정상이므로 num 세팅
+        elif beforenum == 10 and num == 1 :
+            beforenum = num
+        else:
+            wiredNumList.append(i)
+
+
 
 
 
