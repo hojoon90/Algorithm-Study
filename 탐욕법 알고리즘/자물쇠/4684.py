@@ -23,6 +23,7 @@ def changeLocation(list):
         if beforenum == num - 1:
             beforenum = num
             continue
+        # 순서가 서로 다른 넘버를 찾아서 바꿔줘야함.. 어떻게..?
         elif :
 
 
