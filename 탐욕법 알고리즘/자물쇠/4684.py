@@ -16,6 +16,13 @@ lastLeftCount = 0;
 def changeLocation(list):
     wirednumlist = []
     beforenum = 0
+    # 삽입정렬로 위치를 찾아본다?
+    for i in range(1, len(n)):
+        j, key = i - 1, x[i]
+        while x[j] > key and j >= 0:
+            x[j + 1] = x[j]
+            j = j - 1
+            x[j + 1] = key
     for i in range(n):
         num = list[i]
         if i != n - 1:
@@ -23,13 +30,7 @@ def changeLocation(list):
             if nextnum != num + 1:
                 wirednumlist.append(i)
 
-            # 삽입정렬로 위치를 찾아본다?
-            for i in range(1, len(x)):
-                j, key = i - 1, x[i]
-                while x[j] > key and j >= 0:
-                    x[j + 1] = x[j]
-                    j = j - 1
-                    x[j + 1] = key
+
 
         # 첫 for문은 저장하고 넘어감
     #     if i == 0:
