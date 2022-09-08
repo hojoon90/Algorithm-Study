@@ -18,19 +18,21 @@ def changeLocation(list):
     beforenum = 0
     # 삽입정렬로 위치를 찾아본다?
     for i in range(1, len(n)):
-        j, key = i - 1, x[i]
-        while x[j] > key and j >= 0:
-            x[j + 1] = x[j]
+        j, key = i - 1, list[i]
+        while list[j] > key and j >= 0:
+            # ??????
+            list[j + 1] = list[j]
             j = j - 1
-            x[j + 1] = key
-    for i in range(n):
-        num = list[i]
-        if i != n - 1:
-            nextnum = list[i + 1]
-            if nextnum != num + 1:
-                wirednumlist.append(i)
+            list[j + 1] = key
 
 
+
+    # for i in range(n):
+    #     num = list[i]
+    #     if i != n - 1:
+    #         nextnum = list[i + 1]
+    #         if nextnum != num + 1:
+    #             wirednumlist.append(i)
 
         # 첫 for문은 저장하고 넘어감
     #     if i == 0:
